@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: sans-serif;
+}
+
+#layout{
+    display: flex; 
+    height: 100%; 
+    width: 100%;
+}
+
+#containerRaiz_01 {
+    display: flex;
+    height: 100%;
+    width: 30%;
+    background-color: blue;
+    justify-content: center;
+    align-items: center;
+}
+
+#containerCriarTabela {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    background-color: rgb(20, 21, 22);
+    height: 95%;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#containerInput_01_CriarTabela {
+    display: flex;
+    flex-direction: column;
+    height: 8%;
+}
+
+#containerInput_01_CriarTabela label {
+    color: white;
+}
+
+#containerInput_02_CriarTabela {
+    display: flex;
+    flex-direction: column;
+    height: 8%;
+}
+
+#containerInput_02_CriarTabela label {
+    color: white;
+}
+
+#containerBotoesCriarTabela {
+    display: flex;
+    height: 8%;
+    align-items: center;
+}
+
+#containerBotoesCriarTabela button {
+    width: 50%;
+    height: 75%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#containerBotoesCriarTabela button:hover {
+    color: rgb(182, 182, 182);
+    background-color: rgb(53, 53, 53);
+}
+
+#colunasAdicionadasCriarTabela {
+    display: flex;
+    flex-direction: column;
+    max-height: 200px;
+    overflow-y: auto;
+    height: 26%;
+    width: 100%;
+    border: 1px solid green;
+    background-color: white;
+    color: black;
+    margin-top: 10px;
+}
+
+#containerFinalizarCriarTabela {
+    display: flex;
+    height: 16%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+#containerFinalizarCriarTabela label{
+    color: white;
+}
+
+#containerFinalizarCriarTabela button {
+    margin-top: 5%;
+    height: 30%;
+}
+
+#containerFinalizarCriarTabela button:hover {
+    color: rgb(182, 182, 182);
+    background-color: rgb(53, 53, 53);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#containerRaiz_02 {
+    height: 100%;
+    width: 75%;
+    background-color: red;
+}

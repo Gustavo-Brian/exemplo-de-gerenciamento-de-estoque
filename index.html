@@ -7,6 +7,46 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <div id="layout">
+        <div id="containerRaiz_01">
+            <div id="containerCriarTabela">
+                <div id="containerInput_01_CriarTabela">
+                    <label for="nomeColuna">Nome da coluna: </label>
+                    <input id="nomeColuna" type="text">
+                </div>
+
+                <div id="containerInput_02_CriarTabela">
+                    <label for="tipo">Tipo de dado:</label>
+                    <select id="tipo" name="" id="">
+                        <option value="String">String</option>
+                        <option value="int">int</option>
+                        <option value="double">double</option>
+                        <option value="boolean">boolean</option>
+                    </select>
+                </div>
+                
+                <div id="containerBotoesCriarTabela">
+                    <button onclick="adicionarColuna()">Inserir</button>
+                    <button onclick="limparColunasAdicionadas()">Limpar</button>
+                </div>
+                
+                <div id="colunasAdicionadasCriarTabela">
+                    
+                </div>
+
+                <div id="containerFinalizarCriarTabela">
+                    <label for="nomeTabela">Nome da tabela: </label>
+                    <input id="nomeTabela" type="text">
+                    <button onclick="criarTabela()">Criar Tabela</button>
+                </div>
+            </div>
+        </div>
     
+        <div id="containerRaiz_02">
+
+        </div>
+    </div>
+
+    <script src="index.js"></script>
 </body>
 </html>
