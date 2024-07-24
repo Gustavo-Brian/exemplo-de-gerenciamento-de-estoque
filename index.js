@@ -5,7 +5,7 @@ const divContainerRaiz_02 = document.getElementById('containerRaiz_02')
 const inputNomeColuna = document.getElementById('nomeColuna')
 const inputTipo = document.getElementById('tipo')
 const inputNomeTabela = document.getElementById('nomeTabela')
-const divColunasAdicionadas = document.getElementById('colunasAdicionadasCriarTabela')
+const divColunasAdicionadas = document.getElementById('colunasAdicionadas')
 
 function adicionarColuna() {
     let containerDiv = document.createElement('div')
@@ -24,13 +24,14 @@ function adicionarColuna() {
 
 function criarTabela() {
     let tabela = document.createElement('table')
+    tabela.style.color = 'white'
     let caption = document.createElement('caption')
-    caption.innerHTML = input_03
+    caption.innerHTML = inputNomeTabela.value
     let thead = document.createElement('thead')
     let tbody = document.createElement('tbody')
     let tfoot = document.createElement('tfoot')
     let linha = document.createElement('tr')
-    Array.from(document.getElementById('colunasAdicionadas').children).map(
+    Array.from(divColunasAdicionadas.children).map(
         (el) => {
             col = document.createElement('th')
             col.innerHTML = ' (' + el.children[1].innerHTML + ' | ' + el.children[0].innerHTML + ') '
@@ -42,8 +43,9 @@ function criarTabela() {
     tabela.appendChild(thead)
     tabela.appendChild(tbody)
     tabela.appendChild(tfoot)
-    containerRaiz_02.appendChild(tabela)
+    divContainerRaiz_02.appendChild(tabela)
     tabelas.push(tabela)
+
 }
 
 function adicionarElementoNaTabela() {
