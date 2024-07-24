@@ -6,6 +6,7 @@ const inputNomeColuna = document.getElementById('nomeColuna')
 const inputTipo = document.getElementById('tipo')
 const inputNomeTabela = document.getElementById('nomeTabela')
 const divColunasAdicionadas = document.getElementById('colunasAdicionadas')
+const divTabelasExistentes = document.getElementById('tabelasExistentes')
 
 function adicionarColuna() {
     let containerDiv = document.createElement('div')
@@ -20,6 +21,7 @@ function adicionarColuna() {
     containerDiv.appendChild(div_1)
     containerDiv.appendChild(div_2)
     divColunasAdicionadas.appendChild(containerDiv)
+    inputNomeColuna.value = ''
 }   
 
 function criarTabela() {
@@ -27,6 +29,7 @@ function criarTabela() {
     tabela.style.color = 'white'
     let caption = document.createElement('caption')
     caption.innerHTML = inputNomeTabela.value
+    divTabelasExistentes.innerHTML += inputNomeTabela.value + '\n'
     let thead = document.createElement('thead')
     let tbody = document.createElement('tbody')
     let tfoot = document.createElement('tfoot')
@@ -45,7 +48,8 @@ function criarTabela() {
     tabela.appendChild(tfoot)
     divContainerRaiz_02.appendChild(tabela)
     tabelas.push(tabela)
-
+    limparColunasAdicionadas()
+    inputNomeTabela.value = ''
 }
 
 function adicionarElementoNaTabela() {
@@ -53,5 +57,7 @@ function adicionarElementoNaTabela() {
 }
 
 function limparColunasAdicionadas() {
-
+    while(divColunasAdicionadas.firstChild != null) {
+        divColunasAdicionadas.removeChild(divColunasAdicionadas.firstChild)
+    }
 }
