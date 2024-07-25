@@ -48,6 +48,12 @@ body {
     color: white;
 }
 
+#containerInputNomeColuna input {
+    background: none;
+    color: white;
+    outline: none;
+}
+
 #containerInputTipo {
     display: flex;
     flex-direction: column;
@@ -56,6 +62,23 @@ body {
 
 #containerInputTipo label {
     color: white;
+}
+
+#containerInputTipo select{
+    background: none;
+    color: white;
+}
+
+#containerInputTipo select{
+    background: none;
+    color: white;
+    outline: none;
+    border-style: outset;
+    cursor: pointer;
+}
+
+#containerInputTipo select option{
+    color: black;
 }
 
 #containerBotoesControle {
@@ -136,6 +159,12 @@ body {
     color: white;
 }
 
+#containerFinalizarCriacao input {
+    background: none;
+    outline: none;
+    color: white;
+}
+
 #containerFinalizarCriacao button {
     margin-top: 3%;
     height: 30%;
@@ -197,7 +226,6 @@ body {
 
 .p_1 {
     margin-top: 5px;
-    overflow-x: auto;
 }
 
 .p_2 {

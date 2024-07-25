@@ -1,7 +1,8 @@
+//Variáveis de controle
 let quantidadeTabelas = 0
 let tabelas = []
-const divContainerRaiz_01 = document.getElementById('containerRaiz_01')
-const divContainerRaiz_02 = document.getElementById('containerRaiz_02')
+
+//Constantes que representam os elementos manipulados
 const inputNomeColuna = document.getElementById('nomeColuna')
 const inputTipo = document.getElementById('tipo')
 const colunasAdicionadasSubparte_01 = document.getElementById('colunasAdicionadasSubparte_01')
@@ -12,6 +13,7 @@ const inputNomeTabela = document.getElementById('nomeTabela')
 const tabelasExistentesSubparte_01 = document.getElementById('tabelasExistentesSubparte_01')
 const tabelasExistentesSubparte_02 = document.getElementById('tabelasExistentesSubparte_02')
 
+//Função para a adição de uma nova coluna
 function adicionarColuna() {
     //Condição de criação
     if(inputNomeColuna.value == '') {
@@ -30,14 +32,15 @@ function adicionarColuna() {
     btn_1.classList.add('btn_1')
     btn_2.classList.add('btn_2')
 
-    //Definição dos textos internos dos elementos
+    //Atribuição de textos internos aos elementos
     p_1.innerHTML = inputNomeColuna.value
     p_2.innerHTML = inputTipo.value
     btn_1.innerHTML = 'del'
     btn_2.innerHTML = 'edit'
 
-    //Atribuição das funções dos botões
-    btn_1.addEventListener('click', removerElementoSelecionado(p_1, p_2, btn_1, btn_2))
+    //Atribuição das funções aos botões
+    btn_1.addEventListener('click', () => removerLinhaSelecionada(p_1, p_2, btn_1, btn_2))
+    btn_2.addEventListener('click', () => editarLinhaSelecionada(p_1, p_2, btn_1, btn_2))
 
     //Inserção dos elementos em seus respectivos containers
     colunasAdicionadasSubparte_01.appendChild(p_1)
@@ -49,41 +52,27 @@ function adicionarColuna() {
     inputNomeColuna.value = ''
 }   
 
-function removerElementoSelecionado(el1, el2, el3, el4) {
-    return function() {
-        colunasAdicionadasSubparte_01.removeChild(el1)
-        colunasAdicionadasSubparte_02.removeChild(el2)
-        colunasAdicionadasSubparte_03.removeChild(el3)
-        colunasAdicionadasSubparte_04.removeChild(el4)
-    }
+//Função para remoção dos elementos de uma linha
+function removerLinhaSelecionada(el1, el2, el3, el4) {
+    //Remoção dos elementos
+    colunasAdicionadasSubparte_01.removeChild(el1)
+    colunasAdicionadasSubparte_02.removeChild(el2)
+    colunasAdicionadasSubparte_03.removeChild(el3)
+    colunasAdicionadasSubparte_04.removeChild(el4)
 }
 
+//Função para edição dos elementos de uma linha
+function editarLinhaSelecionada(el1, el2, el3, el4) {
+    //Atribuição dos valores aos inputs
+    inputNomeColuna.value = el1.innerHTML
+    inputTipo.value = el2.innerHTML   
+    
+    //Chamada de função, para remover os elementos da linha
+    removerLinhaSelecionada(el1, el2, el3, el4)
+}   
+
 function criarTabela() {
-    let tabela = document.createElement('table')
-    tabela.style.color = 'white'
-    let caption = document.createElement('caption')
-    caption.innerHTML = inputNomeTabela.value
-    divTabelasExistentes.innerHTML += inputNomeTabela.value + '\n'
-    let thead = document.createElement('thead')
-    let tbody = document.createElement('tbody')
-    let tfoot = document.createElement('tfoot')
-    let linha = document.createElement('tr')
-    Array.from(divColunasAdicionadas.children).map(
-        (el) => {
-            col = document.createElement('th')
-            col.innerHTML = ' (' + el.children[1].innerHTML + ' | ' + el.children[0].innerHTML + ') '
-            linha.appendChild(col)
-        }
-    )
-    thead.appendChild(caption)
-    thead.appendChild(linha)
-    tabela.appendChild(thead)
-    tabela.appendChild(tbody)
-    tabela.appendChild(tfoot)
-    divContainerRaiz_02.appendChild(tabela)
-    tabelas.push(tabela)
-    limparColunasAdicionadas()
-    inputNomeTabela.value = ''
+   
 }
 
 function adicionarElementoNaTabela() {
